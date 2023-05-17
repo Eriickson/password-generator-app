@@ -10,10 +10,11 @@ import { SliderLenght } from "@/components/sliderLenght";
 import { StrengthMeter } from "@/components/strengthMeter";
 import { RequirementsFormValues } from "@password-generator";
 import { generateRandomString } from "@/utils/generateRandomString";
+import { evaluatePasswordStrength } from "@/utils/evaluatePasswordStrength";
 
 export const HomeTemplate = () => {
   const [passwordGenerated, setpasswordGenerated] = useState("");
-  const [passwordLength, setPasswordLength] = useState(6);
+  const [passwordLength, setPasswordLength] = useState(8);
   const [requirementsForm, setRequirementsForm] = useState<RequirementsFormValues>({
     includeLowercase: true,
     includeNumbers: true,
@@ -51,7 +52,7 @@ export const HomeTemplate = () => {
                 requirementsForm={requirementsForm}
                 onChange={(value) => setRequirementsForm((prev) => ({ ...prev, ...value }))}
               />
-              <StrengthMeter />
+              <StrengthMeter passwordStrength={evaluatePasswordStrength(passwordGenerated)} />
               <GenerateButton onClick={generatePassword} />
             </Stack>
           </Box>
