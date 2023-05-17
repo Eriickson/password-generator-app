@@ -1,24 +1,33 @@
-import { IconCopy } from "@/assets/icons/IconCopy";
-import { colors } from "@/theme/colors";
-import { Box, Center } from "@chakra-ui/react";
-import React, { useState } from "react";
-import { Clipboard } from "react-feather";
+import React, { FC, useState } from "react";
 
-export const CopyButton = () => {
-  const [isHover, setIsHover] = useState(false);
+import { Clipboard, CheckSquare } from "react-feather";
+
+import { Box, Center } from "@chakra-ui/react";
+
+interface CopyButtonProps {
+  stringToCopy: string;
+}
+
+export const CopyButton: FC<CopyButtonProps> = ({ stringToCopy }) => {
+  const [isCopied, setIsCopied] = useState(false);
+
+  function handleClick() {
+    navigator.clipboard.writeText(stringToCopy);
+    setIsCopied(true);
+
+    setTimeout(() => {
+      setIsCopied(false);
+    }, 1500);
+  }
 
   return (
     <Box
+      onClick={!isCopied ? handleClick : undefined}
       transition="150ms"
       cursor="pointer"
-      onMouseEnter={() => setIsHover(true)}
-      onMouseLeave={() => setIsHover(false)}
       _hover={{ color: "brightgreen.500" }}
     >
-      <Center h="full">
-        {/* <IconCopy color={isHover ? colors.brightgreen[500] : "#FFFFFF"} /> */}
-        <Clipboard size="1.25rem" />
-      </Center>
+      <Center h="full">{isCopied ? <CheckSquare size="1.25rem" /> : <Clipboard size="1.25rem" />}</Center>
     </Box>
   );
 };

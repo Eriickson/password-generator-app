@@ -13,7 +13,7 @@ export const ShowGeneratedPassword: FC<ShowGeneratedPasswordProps> = ({ password
         <Text fontWeight="semibold" fontSize="xl">
           {passwordGenerated}
         </Text>
-        <CopyButton />
+        <CopyButton stringToCopy={passwordGenerated} />
       </Flex>
     </Box>
   );

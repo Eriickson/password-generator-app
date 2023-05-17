@@ -7,7 +7,7 @@ interface SliderLenghtProps {
 
 export const SliderLenght: FC<SliderLenghtProps> = ({ passwordLength }) => {
   return (
-    <Box>
+    <Box userSelect="none">
       <Flex alignItems="center" justifyContent="space-between">
         <Text>Character Length</Text>
         <Text color="brightgreen.500" fontWeight="semibold" fontSize="xl">
