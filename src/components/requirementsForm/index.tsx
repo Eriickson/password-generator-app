@@ -48,10 +48,16 @@ const RequirementsFormCheckbox: FC<RequirementsFormCheckboxProps> = ({
   requirementsFormKey,
   ...props
 }) => {
+  const labels: Record<RequirementsFormKeys, CustomCheckboxProps["label"]> = {
+    includeLowercase: "Include Lowercase Letters",
+    includeUppercase: "Include Uppercase Letters",
+    includeNumbers: "Include Numbers",
+    includeSymbols: "Include Symbols",
+  };
   return (
     <CustomCheckbox
       defaultValue={requirementsForm[requirementsFormKey]}
-      label="Include Lowercase Letters"
+      label={labels[requirementsFormKey]}
       onChange={(value) => props.onChange({ [requirementsFormKey]: value })}
       isDisabled={
         Object.values(requirementsForm).filter((value) => value).length === 1 && requirementsForm[requirementsFormKey]
