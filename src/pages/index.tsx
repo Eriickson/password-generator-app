@@ -2,6 +2,9 @@ import { IconCopy } from "@/assets/icons/IconCopy";
 import { CopyButton } from "@/components/copyButton";
 import { CustomCheckbox } from "@/components/customCheckbox";
 import { GenerateButton } from "@/components/generateButton";
+import { RequirementsForm } from "@/components/requirementsForm";
+import { SliderLenght } from "@/components/sliderLenght";
+import { StrengthMeter } from "@/components/strengthMeter";
 import { Box, Center, Checkbox, Flex, HStack, Stack, Text } from "@chakra-ui/react";
 import React from "react";
 import { Copy } from "react-feather";
@@ -23,41 +26,12 @@ const HomePage = () => {
             </Flex>
           </Box>
           <Box bgColor="backgroundcard.500" px="5" py="5">
-            <Box mb="5">
-              <Stack>
-                <CustomCheckbox label="Include Uppercase Letters" />
-                <CustomCheckbox label="Include Lowercase Letters" />
-                <CustomCheckbox label="Include Numbers" />
-                <CustomCheckbox label="Include Symbols" />
-              </Stack>
-            </Box>
-            <Box bgColor="background.500" mb="5" px="6" py="3.5">
-              <Flex justifyContent="space-between">
-                <Text opacity="0.5">STRENGHT</Text>
-                <HStack>
-                  <Text opacity="0.85">MEDIUM</Text>
-                  <HStack spacing="1" alignItems="center">
-                    <Box
-                      w="1.5"
-                      h="4"
-                      borderColor="yellow.400"
-                      borderWidth="1px"
-                      bgColor="yellow.400"
-                    />
-                    <Box
-                      w="1.5"
-                      h="4"
-                      borderColor="yellow.400"
-                      borderWidth="1px"
-                      bgColor="yellow.400"
-                    />
-                    <Box w="1.5" h="4" borderColor="yellow.400" borderWidth="1px" bgColor="" />
-                    <Box w="1.5" h="4" borderColor="yellow.400" borderWidth="1px" bgColor="" />
-                  </HStack>
-                </HStack>
-              </Flex>
-            </Box>
-            <GenerateButton onClick={() => {}} />
+            <Stack spacing={5}>
+              <SliderLenght />
+              <RequirementsForm />
+              <StrengthMeter />
+              <GenerateButton onClick={() => {}} />
+            </Stack>
           </Box>
         </Box>
       </Center>

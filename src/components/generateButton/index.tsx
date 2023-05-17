@@ -1,5 +1,6 @@
-import { Box, Center, Text } from "@chakra-ui/react";
-import React, { FC, useState } from "react";
+import { Box, Center, Flex, HStack, Text } from "@chakra-ui/react";
+import React, { FC } from "react";
+import { ArrowRight } from "react-feather";
 
 interface GenerateButtonProps {
   onClick(): void;
@@ -20,9 +21,17 @@ export const GenerateButton: FC<GenerateButtonProps> = ({ onClick }) => {
       }}
     >
       <Center>
-        <Text userSelect="none" fontWeight="medium" textTransform="uppercase" transition="250ms">
-          Generate -{">"}
-        </Text>
+        <HStack>
+          <Text
+            userSelect="none"
+            fontWeight="semibold"
+            textTransform="uppercase"
+            transition="250ms"
+          >
+            Generate
+          </Text>
+          <ArrowRight strokeWidth="3" size="1.25rem" />
+        </HStack>
       </Center>
     </Box>
   );
