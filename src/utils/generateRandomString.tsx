@@ -1,10 +1,4 @@
-type GenerateRandomStringType = {
-  length: number;
-  includeLowercase: boolean;
-  includeUppercase: boolean;
-  includeNumbers: boolean;
-  includeSymbols: boolean;
-};
+import { RequirementsFormValues } from "@password-generator";
 
 export function generateRandomString({
   includeLowercase,
@@ -12,7 +6,7 @@ export function generateRandomString({
   includeSymbols,
   includeUppercase,
   length,
-}: GenerateRandomStringType) {
+}: RequirementsFormValues & { length: number }) {
   const lowercaseChars = "abcdefghijklmnopqrstuvwxyz";
   const uppercaseChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   const numberChars = "0123456789";

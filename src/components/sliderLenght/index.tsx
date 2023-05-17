@@ -1,13 +1,17 @@
 import { Box, Flex, Text } from "@chakra-ui/react";
-import React from "react";
+import React, { FC } from "react";
 
-export const SliderLenght = () => {
+interface SliderLenghtProps {
+  passwordLength: number;
+}
+
+export const SliderLenght: FC<SliderLenghtProps> = ({ passwordLength }) => {
   return (
     <Box>
       <Flex alignItems="center" justifyContent="space-between">
         <Text>Character Length</Text>
         <Text color="brightgreen.500" fontWeight="semibold" fontSize="xl">
-          10
+          {passwordLength}
         </Text>
       </Flex>
     </Box>
