@@ -3,6 +3,7 @@ import { CopyButton } from "@/components/copyButton";
 import { CustomCheckbox } from "@/components/customCheckbox";
 import { GenerateButton } from "@/components/generateButton";
 import { RequirementsForm } from "@/components/requirementsForm";
+import { ShowGeneratedPassword } from "@/components/showGeneratedPassword";
 import { SliderLenght } from "@/components/sliderLenght";
 import { StrengthMeter } from "@/components/strengthMeter";
 import { Box, Center, Checkbox, Flex, HStack, Stack, Text } from "@chakra-ui/react";
@@ -17,14 +18,7 @@ const HomePage = () => {
           <Text opacity={0.5} fontSize="xl" mb="4" textAlign="center">
             Password Generator
           </Text>
-          <Box mb="4" bgColor="backgroundcard.500" px="6" py="4">
-            <Flex alignItems="center" justifyContent="space-between">
-              <Text fontWeight="semibold" fontSize="xl">
-                O04g78E&S#G4T1*Pvw
-              </Text>
-              <CopyButton />
-            </Flex>
-          </Box>
+          <ShowGeneratedPassword />
           <Box bgColor="backgroundcard.500" px="5" py="5">
             <Stack spacing={5}>
               <SliderLenght />
